@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/Hixo23/sdsadasdasdasasd/controllers"
 	"github.com/Hixo23/sdsadasdasdasasd/database"
+	"github.com/Hixo23/sdsadasdasdasasd/server"
 	"github.com/gin-gonic/gin"
 )
 
@@ -13,10 +13,12 @@ func main() {
 	db := database.ConnectToDb
 	db()
 	// CRUD commands
-	r.POST("/links", controllers.CreateLink)
-	r.GET("/links", controllers.GetAllLinks)
-	r.GET("/links/:id", controllers.GetLink)
-
+	r.POST("/links", server.CreateLink)
+	r.GET("/links", server.GetAllLinks)
+	r.GET("/links/:id", server.GetLink)
+	r.GET("/links/redirect/:id", server.RedirectLink)
+	r.PUT("links/:id", server.UpdateLink)
+	r.DELETE("links/:id", server.DeleteLink)
 	r.Run(":3000")
 
 }
