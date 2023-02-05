@@ -16,7 +16,6 @@ func main() {
 	r.POST("/links", server.CreateLink)
 	r.GET("/links", server.GetAllLinks)
 	r.GET("/links/:id", server.GetLink)
-	r.GET("/links/redirect/:id", server.RedirectLink)
 	r.PUT("links/:id", server.UpdateLink)
 	r.DELETE("links/:id", server.DeleteLink)
 	r.Run(":3000")
