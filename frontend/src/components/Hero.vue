@@ -1,59 +1,66 @@
-<script>
+<script setup>
+import { ref } from 'vue';
+let json = ref({
+    name: "",
+    url: ""
+})
 
-export default {
-    data() {
-        return {
-            json: {
-                name: "",
-                url: ""
-            },
-            errors: {
-                name: "",
-                url: ""
-            },
-            valid: false
-        }
-    },
-    methods: {
-        async createLink() {
-            this.valid = true
-            if (this.json.name.trim().length < 4) {
-                this.valid = false;
-                this.errors.name = "Name must be at least 4 character long"
+let errors = ref({
+    name: "",
+    url: ""
+})
+
+let valid
+
+const createLink = async() => {
+            valid = true
+            if (json.value.name.trim().length < 4) {
+                errors.value.name = "Name must be at least 4 character long"
+                valid = false;
             } else {
-                this.valid = true
-                this.errors.name = ""
+                valid = true
+                errors.value.name = ""
             }
 
-            if (this.json.url.trim().length < 4) {
-                this.valid = false;
-                this.errors.url = "URL must be at least 4 character long"
+            if (json.value.url.trim().length < 4) {
+                errors.value.url = "URL must be at least 4 character long"
+                valid = false;
             } else {
-                this.valid = true
-                this.errors.url = ""
+                valid = true
+               errors.value.url = ""
             }
 
-            if (this.valid) {
-                fetch('http://127.0.0.1:3000/links', {
+            if (valid) {
+                fetch("http://localhost:3000/links", {
                     method: "POST",
-                    body: JSON.stringify(this.json),
                     headers: {
-                        'Content-Type': 'application/json',
+                        'Content-Type': "application/json"
                     },
+                    body: JSON.stringify(json.value)
                 })
+            } else {
+                console.log(errors)
             }
         }
-    }
-}
+
 </script>
 
+
 <template>
-    <div class="w-full h-auto overflow-hiddenflex flex-col items-center space-y-12">
+    <div v-motion
+    :initial="{
+      opacity: 0,
+      y: 50,
+    }"
+    :enter="{
+      opacity: 1,
+      y: 0,
+    }" class="w-full h-auto overflow-hiddenflex flex-col items-center space-y-12">
         <h2 class="text-white text-3xl text-center">Create Short Links!</h2>
         <form action="">
             <div class="bg-gray-600 w-[28rem] py-12 gap-4 mx-auto flex flex-col justify-center rounded-lg">
                 <div class="mx-auto">
-                    <input class="py-2 px-4 rounded-xl w-96" v-model="json.url" placeholder="Paste a url" type="text">
+                    <input class="py-2 px-4 rounded-xl w-96" v-model="json.url" placeholder="Paste a link" type="text">
                     <p class="text-red-600 mt-2">{{ errors.url }}</p>
                 </div>
                 <div class="mx-auto">
