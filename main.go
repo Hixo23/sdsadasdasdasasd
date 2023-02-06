@@ -37,7 +37,7 @@ func main() {
 	r.PUT("links/:id", server.UpdateLink)
 	r.DELETE("links/:id", server.DeleteLink)
 
-	r.GET("/links/r/:id", server.RedirectToLink)
+	r.GET("/links/r/:name", server.RedirectToLink)
 	r.Run(":3000")
 
 }

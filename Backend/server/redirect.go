@@ -19,7 +19,7 @@ func RedirectToLink(c *gin.Context) {
 func TestRedirectToLink(c *gin.Context) {
 
 	var link models.LinkModel
-	database.DB.Find(&link, 4)
+	database.DB.Find(&link).Where(models.LinkModel{Name: c.Param("name")})
 	url := link.Url
 
 	c.Redirect(http.StatusFound, "http://"+url)
