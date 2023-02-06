@@ -14,16 +14,16 @@ let valid
 
 const createLink = async() => {
             valid = true
-            if (json.value.name.trim().length < 4) {
-                errors.value.name = "Name must be at least 4 character long"
+            if (json.value.name.trim().length < 1) {
+                errors.value.name = "Name must be at least 1 character long"
                 valid = false;
             } else {
                 valid = true
                 errors.value.name = ""
             }
 
-            if (json.value.url.trim().length < 4) {
-                errors.value.url = "URL must be at least 4 character long"
+            if (json.value.url.trim().length < 1) {
+                errors.value.url = "URL must be at least 1 character long"
                 valid = false;
             } else {
                 valid = true
