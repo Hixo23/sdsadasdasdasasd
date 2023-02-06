@@ -33,7 +33,10 @@ func UpdateLink(c *gin.Context) {
 }
 
 func DeleteLink(c *gin.Context) {
-	database.DB.Delete(c.Param("id"))
+	var link *models.LinkModel
+
+	database.DB.First(&link, c.Param("id"))
+	database.DB.Delete(&link, c.Param("id"))
 	c.JSON(204, gin.H{
 		"Link": "deleted",
 	})
