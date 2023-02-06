@@ -28,7 +28,7 @@ func GetAllLinks(c *gin.Context) {
 	database.DB.Find(&links)
 
 	c.JSON(200, gin.H{
-		"All links": links,
+		"links": links,
 	})
 
 }
