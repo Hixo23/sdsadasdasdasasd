@@ -53,7 +53,7 @@ export default {
         <form action="">
             <div class="bg-gray-600 w-[28rem] py-12 gap-4 mx-auto flex flex-col justify-center rounded-lg">
                 <div class="mx-auto">
-                    <input class="py-2 px-4 rounded-xl w-96" v-model="json.url" placeholder="Paste a link" type="text">
+                    <input class="py-2 px-4 rounded-xl w-96" v-model="json.url" placeholder="Paste a url" type="text">
                     <p class="text-red-600 mt-2">{{ errors.url }}</p>
                 </div>
                 <div class="mx-auto">
