@@ -27,11 +27,11 @@ console.log(data.value)
 </script>
 
 <template>
-    <div class="w-screen h-screen bg-gray-800 font-jetbrainsMono">
+    <div class="w-screen h-screen bg-[#4D937F] font-jetbrainsMono">
         <Header />
         <Hero />
-        <div v-for="link in data" :id="link.id">
-            <Card :link="link" />
+        <div  class="flex flex-wrap items-center justify-center gap-2 mt-4">
+            <Card v-for="link in data" :id="link.id" :link="link" />
 
         </div>
     </div>

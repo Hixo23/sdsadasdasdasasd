@@ -56,15 +56,15 @@ const createLink = async() => {
       opacity: 1,
       y: 0,
     }" class="w-full h-auto overflow-hiddenflex flex-col items-center space-y-12">
-        <h2 class="text-white text-3xl text-center">Create Short Links!</h2>
+        <h2 class="text-black text-3xl text-center">Create Short Links!</h2>
         <form action="">
-            <div class="bg-gray-600 w-[28rem] py-12 gap-4 mx-auto flex flex-col justify-center rounded-lg">
+            <div class="bg-[#0F0B0B] w-[28rem] py-12 gap-4 mx-auto flex flex-col justify-center rounded-lg">
                 <div class="mx-auto">
-                    <input class="py-2 px-4 rounded-xl w-96" v-model="json.url" placeholder="Paste a link" type="text">
+                    <input class="py-2 px-4 rounded-xl w-96 text-black" v-model="json.url" placeholder="Paste a link" type="text">
                     <p class="text-red-600 mt-2">{{ errors.url }}</p>
                 </div>
                 <div class="mx-auto">
-                    <input class="py-2 px-4 rounded-xl w-96" v-model="json.name" placeholder="Type a name" type="text">
+                    <input class="py-2 px-4 rounded-xl w-96 text-black" v-model="json.name" placeholder="Type a name" type="text">
                     <p class="text-red-600 mt-2">{{ errors.name }}</p>
                 </div>
                 <button type="button" @click="createLink()"
