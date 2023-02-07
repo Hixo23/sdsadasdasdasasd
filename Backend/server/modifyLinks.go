@@ -43,6 +43,7 @@ func DeleteLink(c *gin.Context) {
 
 	database.DB.First(&link, c.Param("id"))
 	database.DB.Delete(&link, c.Param("id"))
+
 	c.JSON(204, gin.H{
 		"Link": "deleted",
 	})
