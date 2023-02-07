@@ -13,7 +13,7 @@ import { data } from './utility/fetchData'
 </script>
 
 <template>
-    <div class="w-screen h-screen bg-[#4D937F] font-jetbrainsMono">
+    <div class="w-screen h-screen bg-[#0B0C10] font-jetbrainsMono">
         <Header />
         <Hero />
         <div  class="flex flex-wrap items-center justify-center gap-2 mt-4">
