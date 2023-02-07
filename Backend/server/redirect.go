@@ -9,10 +9,17 @@ import (
 )
 
 func RedirectToLink(c *gin.Context) {
-
 	var link models.LinkModel
-	database.DB.Find(&link).Where(models.LinkModel{Name: c.Param("name")})
-	url := link.Url
+	database.DB.First(&link, "name = ?", c.Param("name"))
 
-	c.Redirect(http.StatusFound, "http://"+url)
+	url := link.Url
+	if url == "" {
+		c.JSON(http.StatusNotFound, gin.H{
+			"link": "not found",
+		})
+	} else {
+
+		c.Redirect(http.StatusFound, "http://"+url)
+
+	}
 }

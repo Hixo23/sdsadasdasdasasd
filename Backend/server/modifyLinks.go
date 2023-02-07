@@ -10,8 +10,8 @@ import (
 
 func CreateLink(c *gin.Context) {
 	var Link1 struct {
-		Url  string `json:"Url" binding:"required"`
-		Name string `json:"name" binding:"required"`
+		Url  string `json:"Url" binding:"required" gorm:"unique_index"`
+		Name string `json:"name" binding:"required" gorm:"unique_index"`
 	}
 
 	if err := c.ShouldBind(&Link1); err != nil {
