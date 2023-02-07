@@ -3,7 +3,7 @@ import Header from './components/Header.vue';
 import Hero from './components/Hero.vue';
 import Card from './components/Card.vue';
 
-import {fetchData, data } from './utility/fetchData'
+import { data } from './utility/fetchData'
 
 
 
