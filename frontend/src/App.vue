@@ -2,10 +2,7 @@
 import Header from './components/Header.vue';
 import Hero from './components/Hero.vue';
 import Card from './components/Card.vue';
-
 import { data } from './utility/fetchData'
-
-
 
 
 
@@ -18,7 +15,6 @@ import { data } from './utility/fetchData'
         <Hero />
         <div  class="flex flex-wrap items-center justify-center gap-2 mt-4">
             <Card v-for="link in data" :id="link.id" :link="link" />
-
         </div>
     </div>
 </template>
