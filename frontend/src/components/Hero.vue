@@ -58,14 +58,14 @@ const createLink = () => {
         <form action="">
             <div class="bg-[#0B0C10] w-[28rem] py-12 gap-4 mx-auto flex flex-col justify-center rounded-lg">
                 <div class="mx-auto">
-                    <input class="py-2 px-4 rounded-xl w-96 text-black" v-model="json.url" placeholder="Paste a link"
-                        type="text">
-                    <p class="text-red-600 mt-2">{{ errors.url }}</p>
-                </div>
-                <div class="mx-auto">
                     <input class="py-2 px-4 rounded-xl w-96 text-black" v-model="json.name" placeholder="Type a name"
                         type="text">
                     <p class="text-red-600 mt-2">{{ errors.name }}</p>
+                </div>
+                <div class="mx-auto">
+                    <input class="py-2 px-4 rounded-xl w-96 text-black" v-model="json.url" placeholder="Paste a link"
+                        type="text">
+                    <p class="text-red-600 mt-2">{{ errors.url }}</p>
                 </div>
                 <button type="button" @click="createLink()"
                     class="bg-slate-800	text-[#C5C6C7] px-8 py-2 rounded-xl w-96 mx-auto hover:bg-transparent hover:border hover:border-blue-500 hover:text-white transition-all duration-150">Shorten</button>

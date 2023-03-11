@@ -6,7 +6,13 @@ const props = defineProps(['link'])
 
 </script>
 <template>
-    <div class="bg-[#1F2833] p-4 h-32 text-white flex flex-col justify-center items-center rounded-lg">
+    <div v-motion :initial="{
+        opacity: 0,
+        y: 50,
+    }" :enter="{
+    opacity: 1,
+    y: 0,
+}" class="bg-[#1F2833] p-4 h-32 text-white flex flex-col justify-center items-center rounded-lg">
         <h3>Name: {{ name }}</h3>
         <p>URL: {{ url }}</p>
         <a>Link: http://localhost:3000/links/r/{{ name }}</a>
